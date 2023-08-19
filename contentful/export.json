@@ -1,0 +1,3582 @@
+{
+  "contentTypes": [
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "njugwttfbc40"
+          }
+        },
+        "id": "project",
+        "type": "ContentType",
+        "createdAt": "2020-02-02T06:33:07.533Z",
+        "updatedAt": "2023-07-19T03:17:17.247Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 39,
+        "publishedAt": "2023-07-19T03:17:17.247Z",
+        "firstPublishedAt": "2020-02-02T06:33:08.027Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2XYYMBD5cQQLpmPAKt9P5u"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2XYYMBD5cQQLpmPAKt9P5u"
+          }
+        },
+        "publishedCounter": 20,
+        "version": 40,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2XYYMBD5cQQLpmPAKt9P5u"
+          }
+        }
+      },
+      "displayField": "title",
+      "name": "Project",
+      "description": "Content mode for projects i've done",
+      "fields": [
+        {
+          "id": "title",
+          "name": "Title",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+            {
+              "size": {
+                "min": 0,
+                "max": 35
+              },
+              "message": "Title too long"
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "slug",
+          "name": "slug",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+            {
+              "unique": true
+            },
+            {
+              "size": {
+                "min": 0,
+                "max": 50
+              },
+              "message": "Slug too long"
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "coverPhoto",
+          "name": "Cover Photo",
+          "type": "Link",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Asset"
+        },
+        {
+          "id": "body",
+          "name": "Body",
+          "type": "RichText",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "enabledMarks": [
+                "bold",
+                "italic",
+                "underline",
+                "code"
+              ],
+              "message": "Only bold, italic, underline, and code marks are allowed"
+            },
+            {
+              "enabledNodeTypes": [
+                "heading-1",
+                "heading-2",
+                "heading-3",
+                "heading-4",
+                "heading-5",
+                "heading-6",
+                "ordered-list",
+                "unordered-list",
+                "hr",
+                "blockquote",
+                "embedded-entry-block",
+                "embedded-asset-block",
+                "hyperlink",
+                "entry-hyperlink",
+                "asset-hyperlink",
+                "embedded-entry-inline"
+              ],
+              "message": "Only heading 1, heading 2, heading 3, heading 4, heading 5, heading 6, ordered list, unordered list, horizontal rule, quote, block entry, asset, link to Url, link to entry, link to asset, and inline entry nodes are allowed"
+            },
+            {
+              "nodes": {
+              }
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "githubRepo",
+          "name": "Github Repo",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+            {
+              "unique": true
+            },
+            {
+              "regexp": {
+                "pattern": "^(ftp|http|https):\\/\\/(\\w+:{0,1}\\w*@)?(\\S+)(:[0-9]+)?(\\/|\\/([\\w#!:.?+=&%@!\\-/]))?$",
+                "flags": null
+              }
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "category",
+          "name": "category",
+          "type": "Array",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "defaultValue": {
+            "en-US": [
+              "Front-End Development"
+            ]
+          },
+          "disabled": false,
+          "omitted": false,
+          "items": {
+            "type": "Symbol",
+            "validations": [
+              {
+                "in": [
+                  "Template",
+                  "Front-End Development",
+                  "App Development"
+                ],
+                "message": "Please select the a value from the lsit"
+              }
+            ]
+          }
+        },
+        {
+          "id": "liveUrl",
+          "name": "Live Url",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+            {
+              "unique": true
+            },
+            {
+              "regexp": {
+                "pattern": "^(ftp|http|https):\\/\\/(\\w+:{0,1}\\w*@)?(\\S+)(:[0-9]+)?(\\/|\\/([\\w#!:.?+=&%@!\\-/]))?$",
+                "flags": null
+              },
+              "message": "Please enter a url patern"
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "shortDescription",
+          "name": "Short Description",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": true
+        },
+        {
+          "id": "overview",
+          "name": "Overview",
+          "type": "Text",
+          "localized": false,
+          "required": true,
+          "validations": [
+            {
+              "size": {
+                "min": 0,
+                "max": 500
+              },
+              "message": "Too long bruh"
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        }
+      ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "njugwttfbc40"
+          }
+        },
+        "id": "bogPost",
+        "type": "ContentType",
+        "createdAt": "2020-02-05T05:30:59.649Z",
+        "updatedAt": "2020-04-27T07:02:31.018Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 9,
+        "publishedAt": "2020-04-27T07:02:31.018Z",
+        "firstPublishedAt": "2020-02-05T05:31:00.226Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2XYYMBD5cQQLpmPAKt9P5u"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2XYYMBD5cQQLpmPAKt9P5u"
+          }
+        },
+        "publishedCounter": 5,
+        "version": 10,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2XYYMBD5cQQLpmPAKt9P5u"
+          }
+        }
+      },
+      "displayField": "title",
+      "name": "Bog Post",
+      "description": "",
+      "fields": [
+        {
+          "id": "coverPhoto",
+          "name": "Cover Photo",
+          "type": "Link",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Asset"
+        },
+        {
+          "id": "title",
+          "name": "Title",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+            {
+              "size": {
+                "min": 0,
+                "max": 50
+              },
+              "message": "Title too long"
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "publishDate",
+          "name": "Publish Date",
+          "type": "Date",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "category",
+          "name": "Category",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+            {
+              "in": [
+                "Business",
+                "Web Development",
+                "NextJs"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "body",
+          "name": "body",
+          "type": "RichText",
+          "localized": false,
+          "required": true,
+          "validations": [
+            {
+              "nodes": {
+              }
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "tags",
+          "name": "Tags",
+          "type": "Array",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false,
+          "items": {
+            "type": "Symbol",
+            "validations": [
+            ]
+          }
+        },
+        {
+          "id": "slug",
+          "name": "slug",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+            {
+              "size": {
+                "min": 0,
+                "max": 50
+              }
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "shortText",
+          "name": "Short Text",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        }
+      ]
+    }
+  ],
+  "tags": [
+  ],
+  "editorInterfaces": [
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "njugwttfbc40",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 40,
+        "createdAt": "2020-02-02T06:33:08.112Z",
+        "createdBy": {
+          "sys": {
+            "id": "2XYYMBD5cQQLpmPAKt9P5u",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2023-07-19T03:17:17.732Z",
+        "updatedBy": {
+          "sys": {
+            "id": "2XYYMBD5cQQLpmPAKt9P5u",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "project",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "title",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "slug",
+          "widgetId": "slugEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "coverPhoto",
+          "widgetId": "assetLinkEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "body",
+          "widgetId": "richTextEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "githubRepo",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "category",
+          "widgetId": "listInput",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "liveUrl",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "shortDescription",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "overview",
+          "widgetId": "markdown",
+          "widgetNamespace": "builtin"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "njugwttfbc40",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 10,
+        "createdAt": "2020-02-05T05:31:00.315Z",
+        "createdBy": {
+          "sys": {
+            "id": "2XYYMBD5cQQLpmPAKt9P5u",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2020-04-27T07:02:31.634Z",
+        "updatedBy": {
+          "sys": {
+            "id": "2XYYMBD5cQQLpmPAKt9P5u",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "bogPost",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "coverPhoto",
+          "widgetId": "assetLinkEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "title",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "publishDate",
+          "settings": {
+            "ampm": "24",
+            "format": "timeZ"
+          },
+          "widgetId": "datePicker",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "category",
+          "widgetId": "radio",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "body",
+          "widgetId": "richTextEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "tags",
+          "widgetId": "tagEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "slug",
+          "widgetId": "slugEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "shortText",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        }
+      ]
+    }
+  ],
+  "entries": [
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "njugwttfbc40"
+          }
+        },
+        "id": "5Irov7JuW10J53abwdxwd2",
+        "type": "Entry",
+        "createdAt": "2020-02-02T07:08:38.517Z",
+        "updatedAt": "2020-05-10T10:56:01.875Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 227,
+        "publishedAt": "2020-02-20T07:43:20.662Z",
+        "firstPublishedAt": "2020-02-02T07:25:28.079Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2XYYMBD5cQQLpmPAKt9P5u"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2XYYMBD5cQQLpmPAKt9P5u"
+          }
+        },
+        "publishedCounter": 9,
+        "version": 229,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2XYYMBD5cQQLpmPAKt9P5u"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "project"
+          }
+        }
+      },
+      "fields": {
+        "title": {
+          "en-US": "Pace Media"
+        },
+        "coverPhoto": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "2djZVMoFKdre8qje7BvPiY"
+            }
+          }
+        },
+        "body": {
+          "en-US": {
+            "data": {
+            },
+            "content": [
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Description",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "heading-2"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Pace Media is a brand that provides media coverage on the cultural aspects of Indiana through interviews, blog posts, and to add versatility, Radio shows through their website. The aim is to help people who aren't as involved with whats going on in the city get a glimpse of all the different scenes available that most people have probably never heard of. As a true lover of his states culture & an excellent communicator, Pace plays his role through media by participating in the creative scene and bringing his viewers along with him as he explores all there is to offer in indiana.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              }
+            ],
+            "nodeType": "document"
+          }
+        },
+        "githubRepo": {
+          "en-US": "https://github.com/anthonyg56/Pac-Media"
+        },
+        "slug": {
+          "en-US": "pace-media"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "njugwttfbc40"
+          }
+        },
+        "id": "3WM6hPADpbmsEPaaAnuq3E",
+        "type": "Entry",
+        "createdAt": "2023-07-18T22:30:27.562Z",
+        "updatedAt": "2023-07-19T03:12:40.442Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 31,
+        "publishedAt": "2023-07-19T03:12:40.442Z",
+        "firstPublishedAt": "2023-07-19T03:12:40.442Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2XYYMBD5cQQLpmPAKt9P5u"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2XYYMBD5cQQLpmPAKt9P5u"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 32,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2XYYMBD5cQQLpmPAKt9P5u"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "project"
+          }
+        }
+      },
+      "fields": {
+        "title": {
+          "en-US": "Tribe"
+        },
+        "slug": {
+          "en-US": "tribe"
+        },
+        "coverPhoto": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "1OxEG90eV7v9aBt6BDJu6p"
+            }
+          }
+        },
+        "body": {
+          "en-US": {
+            "data": {
+            },
+            "content": [
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "‍",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "‍",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "value": "An In-depth Lookat Tribe",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "heading-1"
+              },
+              {
+                "data": {
+                  "target": {
+                    "sys": {
+                      "id": "4FIyEbSHfLMPqlWP3Mtqdd",
+                      "type": "Link",
+                      "linkType": "Asset"
+                    }
+                  }
+                },
+                "content": [
+                ],
+                "nodeType": "embedded-asset-block"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Mockup of a Tribes Dashboard (",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                      "uri": "https://youtu.be/tTLaZmiHzao"
+                    },
+                    "content": [
+                      {
+                        "data": {
+                        },
+                        "marks": [
+                        ],
+                        "value": "Click here for a",
+                        "nodeType": "text"
+                      }
+                    ],
+                    "nodeType": "hyperlink"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                      "uri": "https://youtu.be/tTLaZmiHzao"
+                    },
+                    "content": [
+                      {
+                        "data": {
+                        },
+                        "marks": [
+                        ],
+                        "value": " video demo",
+                        "nodeType": "text"
+                      }
+                    ],
+                    "nodeType": "hyperlink"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": ")",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "value": "The problem",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "heading-5"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "value": "Social media platforms lack an authentic, intimate online environment.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "heading-3"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "The majority of the content that people view on social media is on a single timeline. It is posts generated by either AI, someone you follow/is subscribed to, or have added as a friend.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "The problem with this approach is that so many people have become overly identified with their online personas. All in an effort to make their post seem more exciting or appealing than it actually is and get the spotlight for most likes or views.  Problems like this make It difficult to create authentic shared intimate moments online with those you are close to. The reason is that key parts of intimacy like inclusion, authenticity, and the freedom to share vulnerabilities are hard to achieve given how social media lacks an integral environment that allows it.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "‍",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "value": "The Solution",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "heading-5"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "value": "Private online spaces called Tribes.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "heading-3"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "People want to be able to enjoy what they love online in an intimate fashion just like in real life. With Tribe, users can create or join multiple private spaces built like conventional social media, but only for an exclusive group of people.  It's much easier to share intimate moments this way because they're centered around a shared passion, interest, or goal within a private setting. Each Tribe will have an owner and is customizable to suit varying needs, whether that be visual or systematic.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "‍",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "value": "The Process",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "heading-5"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "value": "Ideation",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "heading-3"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "When Tribe was being connected as an idea, it was during the 2020 pandemic where more people were online at once than ever. Social media was not a very enjoyable place to be at times. There was an influx of content pertaining to politics, misinformation, and non-relevant posts from accounts most have never heard of. ",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "‍",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "The sole objective was to create a platform that allowed people to interact online in a private space with their friends and family to avoid all the irrelevant and noisy content. By taking inspiration from two major platforms that's also provide privacy and comfort, Discord and Reddit, and incorporating their similarities and differences, Tribe was created. This seemed like the correct decision because they were quickly gaining traction & popularity as an alternative social platform. We used Trello to help manage and maintain the integrity, consistency, and wholeness of Tribe as an idea.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "‍",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "value": "Wireframing & UX",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "heading-3"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Once a general idea of what the app is supposed to be was established, it was time to start wireframing. To start things off, we created a rough draft on paper for the visual component of every functionality we could think of, along with multiple variations of each one. Later on, we would decide on what to use based on which components made the most sense. Miro provides us a way to bring a visual rough draft of our idea to life.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "‍",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                  "target": {
+                    "sys": {
+                      "id": "3IOgwNQN0m81wNnezHgYON",
+                      "type": "Link",
+                      "linkType": "Asset"
+                    }
+                  }
+                },
+                "content": [
+                ],
+                "nodeType": "embedded-asset-block"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Entire Wire Frame Board",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "‍",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "After we drew out all the ",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "italic"
+                      }
+                    ],
+                    "value": "potential ",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "components, we connected them together to grasp a better idea of how each component would be flowing and interacting within the application visually. As fun as it was to view the wireframe connected and flowing together, we soon began to realize that there was a problem. This was going to take a while to build, and we did not have the time to build Tribe with all the features we originally intended for it to have. What's the solution? Turn it into an MVP",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "‍",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                  "target": {
+                    "sys": {
+                      "id": "6EhUwTOvhVG4MnlR28uVx2",
+                      "type": "Link",
+                      "linkType": "Asset"
+                    }
+                  }
+                },
+                "content": [
+                ],
+                "nodeType": "embedded-asset-block"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "MVP Wireframe For desktop",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "When talking about an MVP I don't necessarily mean the star of a team, even though that's what Tribe is. In this context, I'm referring to a",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                      "uri": "https://www.productplan.com/glossary/minimum-viable-product/"
+                    },
+                    "content": [
+                      {
+                        "data": {
+                        },
+                        "marks": [
+                        ],
+                        "value": " Minimum Viable Product",
+                        "nodeType": "text"
+                      }
+                    ],
+                    "nodeType": "hyperlink"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": ". A Minimum Viable Product provides a way for products, that are still in their early stages of development, to reach the eyes of the public. It's a strategic way to enter the market faster and really gauge realistically how the product will do.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "So we took the time to establish what Tribe should offer at minimum functionality. What we decided on was that it needs to provide at least a closed and private space that is able to imitate an intimate environment for its members to be able to interact with one another. Inside of these spaces, users will be provided with features & functionalities that they have already been accustomed to; like a Timeline or a messaging system, but it would only be available for them as a group. This was more than enough to get things going.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "If you are interested in seeing the full board more in-depth for yourself, you can check it out on Miro here:",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                      "uri": "https://miro.com/app/board/o9J_kmah44U=/?share_link_id=751428430293"
+                    },
+                    "content": [
+                      {
+                        "data": {
+                        },
+                        "marks": [
+                        ],
+                        "value": " Link",
+                        "nodeType": "text"
+                      }
+                    ],
+                    "nodeType": "hyperlink"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "value": "Designing a Mockup (UI)",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "heading-3"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "While UX has always felt natural for me, UI has always been my Achilles heel as a web developer. The issue is that every attempt leads to me having to choose between either A bland design but quick delivery or A nice design but long delivery. To avoid either one of those pitfalls I took a new approach. Meant as a means to get a good starting point for Tribe, I found “",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "italic"
+                      }
+                    ],
+                    "value": "a_social_media_template_design.psd”",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": " for sale and available for commercial use, moved things around to my liking and in a way that would represent tribe best.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "‍",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                  "target": {
+                    "sys": {
+                      "id": "1DRyfOViWmEd2ZqEVbvunN",
+                      "type": "Link",
+                      "linkType": "Asset"
+                    }
+                  }
+                },
+                "content": [
+                ],
+                "nodeType": "embedded-asset-block"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Template (left), Tribe (right)",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "‍",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "The benefit with this approach is that a lot of the icons, fonts, shapes, and other UI elements are already made. All that was left for me to do was add our own personal touch by moving, adding, editing different elements and it worked out great.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "value": "Creating a data system/Architecture that reflects the Mockup",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "heading-3"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "One of the most important factors when it came to building Tribe as an application was that it had to be ",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "italic"
+                      },
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "value": "scalable",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "value": " ",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "from inception. That all is dependent on how the data is modeled and connected; as well as the functionality. To help get a better idea on what this would look like visually, we designed it all on LucidChart. ",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                  "target": {
+                    "sys": {
+                      "id": "29THh96qhmVe7H8eQCiSCd",
+                      "type": "Link",
+                      "linkType": "Asset"
+                    }
+                  }
+                },
+                "content": [
+                ],
+                "nodeType": "embedded-asset-block"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "ERD of all the data moving within tribe",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "We Did the same for a lot of the functionality as well.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                  "target": {
+                    "sys": {
+                      "id": "5VJOUavDDcEL74Y8bjxe94",
+                      "type": "Link",
+                      "linkType": "Asset"
+                    }
+                  }
+                },
+                "content": [
+                ],
+                "nodeType": "embedded-asset-block"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Flow chart for logging in to Tribe",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "If you're interested in viewing all the diagrams we’ve made, check it out on LucidChart (You do need to have a lucid chart account to view the diagram, creating one is free & easy)",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                      "uri": "https://lucid.app/folder/invitations/accept/inv_7cdaa171-59cd-4569-92b0-c0c9d01b8250"
+                    },
+                    "content": [
+                      {
+                        "data": {
+                        },
+                        "marks": [
+                        ],
+                        "value": " here",
+                        "nodeType": "text"
+                      }
+                    ],
+                    "nodeType": "hyperlink"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "value": "Bringing it all together and building the App",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "heading-3"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Now that a bird eye view of the visual design & architecture has been established, it was time to bring it all together. The main technology stack used to build Tribe were:",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Front End",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "content": [
+                      {
+                        "data": {
+                        },
+                        "content": [
+                          {
+                            "data": {
+                            },
+                            "marks": [
+                            ],
+                            "value": "React.Js - for rendering the front end and providing a SPA (Single Page Application) feel",
+                            "nodeType": "text"
+                          }
+                        ],
+                        "nodeType": "paragraph"
+                      }
+                    ],
+                    "nodeType": "list-item"
+                  },
+                  {
+                    "data": {
+                    },
+                    "content": [
+                      {
+                        "data": {
+                        },
+                        "content": [
+                          {
+                            "data": {
+                            },
+                            "marks": [
+                            ],
+                            "value": "SASS - For styling",
+                            "nodeType": "text"
+                          }
+                        ],
+                        "nodeType": "paragraph"
+                      }
+                    ],
+                    "nodeType": "list-item"
+                  },
+                  {
+                    "data": {
+                    },
+                    "content": [
+                      {
+                        "data": {
+                        },
+                        "content": [
+                          {
+                            "data": {
+                            },
+                            "marks": [
+                            ],
+                            "value": "Typescript - Helped keep debugging & testing at a minimum, implement type safety, and provide a smoother development experience than vanilla js.",
+                            "nodeType": "text"
+                          }
+                        ],
+                        "nodeType": "paragraph"
+                      }
+                    ],
+                    "nodeType": "list-item"
+                  },
+                  {
+                    "data": {
+                    },
+                    "content": [
+                      {
+                        "data": {
+                        },
+                        "content": [
+                          {
+                            "data": {
+                            },
+                            "marks": [
+                            ],
+                            "value": "SWR - Data Fetching and Data caching for React",
+                            "nodeType": "text"
+                          }
+                        ],
+                        "nodeType": "paragraph"
+                      }
+                    ],
+                    "nodeType": "list-item"
+                  }
+                ],
+                "nodeType": "unordered-list"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Back End",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "content": [
+                      {
+                        "data": {
+                        },
+                        "content": [
+                          {
+                            "data": {
+                            },
+                            "marks": [
+                            ],
+                            "value": "Node.js - Powering the backend",
+                            "nodeType": "text"
+                          }
+                        ],
+                        "nodeType": "paragraph"
+                      }
+                    ],
+                    "nodeType": "list-item"
+                  },
+                  {
+                    "data": {
+                    },
+                    "content": [
+                      {
+                        "data": {
+                        },
+                        "content": [
+                          {
+                            "data": {
+                            },
+                            "marks": [
+                            ],
+                            "value": "Typescript - Same reason as for the front end",
+                            "nodeType": "text"
+                          }
+                        ],
+                        "nodeType": "paragraph"
+                      }
+                    ],
+                    "nodeType": "list-item"
+                  },
+                  {
+                    "data": {
+                    },
+                    "content": [
+                      {
+                        "data": {
+                        },
+                        "content": [
+                          {
+                            "data": {
+                            },
+                            "marks": [
+                            ],
+                            "value": "Express - Framework for NodeJS to help create Api endpoints",
+                            "nodeType": "text"
+                          }
+                        ],
+                        "nodeType": "paragraph"
+                      }
+                    ],
+                    "nodeType": "list-item"
+                  },
+                  {
+                    "data": {
+                    },
+                    "content": [
+                      {
+                        "data": {
+                        },
+                        "content": [
+                          {
+                            "data": {
+                            },
+                            "marks": [
+                            ],
+                            "value": "Passport - For authentication",
+                            "nodeType": "text"
+                          }
+                        ],
+                        "nodeType": "paragraph"
+                      }
+                    ],
+                    "nodeType": "list-item"
+                  },
+                  {
+                    "data": {
+                    },
+                    "content": [
+                      {
+                        "data": {
+                        },
+                        "content": [
+                          {
+                            "data": {
+                            },
+                            "marks": [
+                            ],
+                            "value": "MongoDB - A NoSQL DB to get projects up and running fast",
+                            "nodeType": "text"
+                          }
+                        ],
+                        "nodeType": "paragraph"
+                      }
+                    ],
+                    "nodeType": "list-item"
+                  },
+                  {
+                    "data": {
+                    },
+                    "content": [
+                      {
+                        "data": {
+                        },
+                        "content": [
+                          {
+                            "data": {
+                            },
+                            "marks": [
+                            ],
+                            "value": "Socket.io - Provides an open connection for notifications and messaging without reloading the page",
+                            "nodeType": "text"
+                          }
+                        ],
+                        "nodeType": "paragraph"
+                      }
+                    ],
+                    "nodeType": "list-item"
+                  },
+                  {
+                    "data": {
+                    },
+                    "content": [
+                      {
+                        "data": {
+                        },
+                        "content": [
+                          {
+                            "data": {
+                            },
+                            "marks": [
+                            ],
+                            "value": "Cloudinary - Storing images on the cloud",
+                            "nodeType": "text"
+                          }
+                        ],
+                        "nodeType": "paragraph"
+                      }
+                    ],
+                    "nodeType": "list-item"
+                  }
+                ],
+                "nodeType": "unordered-list"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "To see the code check it out on my GitHub.",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                      "uri": "https://github.com/anthonyg56/Tribe-Api"
+                    },
+                    "content": [
+                      {
+                        "data": {
+                        },
+                        "marks": [
+                        ],
+                        "value": " Api",
+                        "nodeType": "text"
+                      }
+                    ],
+                    "nodeType": "hyperlink"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": " &",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                      "uri": "https://github.com/anthonyg56/Tribe-Client"
+                    },
+                    "content": [
+                      {
+                        "data": {
+                        },
+                        "marks": [
+                        ],
+                        "value": " Client",
+                        "nodeType": "text"
+                      }
+                    ],
+                    "nodeType": "hyperlink"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "‍",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "value": "Closing Thoughts",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "heading-3"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "If you’ve made it this far, I want to thank you for taking the time to read my journey on this. All of my projects before this have been on the smaller scale of things like a blog, or personal archive for content. Tribe was a challenge to build, it taught me a lot, as well as helped expand my capabilities as a developer. I gained a deeper understanding of the backend through authentication, cookies, image uploading, and querying a NoSQL DB like MongoDB. As well as how to thoroughly develop a web app through Ideation -> Wireframing -> UI -> Data modeling & Flow Charts -> Coding.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": " Unfortunately, due to personal circumstances, I had to do what was best for me at the time and put a pause on Tribe. Due to working on it almost every day, trying to manage a full-time job, and living on my own for the first time in an apartment; This caused me to experience burnout for the first time and it was not mixing well with my depression. Today i am in a much better headspace and will return to working on the app after about a year hiatus. To keep up to date on my progress or when the alpha variant is ready, follow me on twitter @GayflorAnthony.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "‍",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "‍",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "\n\n",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              }
+            ],
+            "nodeType": "document"
+          }
+        },
+        "githubRepo": {
+          "en-US": "https://github.com/anthonyg56"
+        },
+        "category": {
+          "en-US": [
+            "Front-End Development"
+          ]
+        },
+        "liveUrl": {
+          "en-US": "https://tribe-next-js.vercel.app/"
+        },
+        "overview": {
+          "en-US": "Tribe is a social media platform for exclusive social groups centered around a shared passion, interest, or general commonalities. Tribes mission is to help cultivate an online environment that empowers users to enjoy the content they love while creating create shared intimate moments to keep the flame alive. "
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "njugwttfbc40"
+          }
+        },
+        "id": "2K30TvTIuHwYsrrqUqYWym",
+        "type": "Entry",
+        "createdAt": "2023-07-19T03:13:07.837Z",
+        "updatedAt": "2023-07-19T03:16:09.658Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 7,
+        "publishedAt": "2023-07-19T03:16:09.658Z",
+        "firstPublishedAt": "2023-07-19T03:16:09.658Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2XYYMBD5cQQLpmPAKt9P5u"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2XYYMBD5cQQLpmPAKt9P5u"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 8,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2XYYMBD5cQQLpmPAKt9P5u"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "project"
+          }
+        }
+      },
+      "fields": {
+        "title": {
+          "en-US": "Mason Sells Indy"
+        },
+        "slug": {
+          "en-US": "mason-sells-indy"
+        },
+        "coverPhoto": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "1K4Jz0xegAhtnc6qhb9U7s"
+            }
+          }
+        },
+        "githubRepo": {
+          "en-US": "https://github.com/anthonyg56/Realtor"
+        },
+        "category": {
+          "en-US": [
+            "Front-End Development"
+          ]
+        },
+        "liveUrl": {
+          "en-US": "https://realtor-bay-one.vercel.app/"
+        },
+        "overview": {
+          "en-US": "Real"
+        }
+      }
+    }
+  ],
+  "assets": [
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "njugwttfbc40"
+          }
+        },
+        "id": "2djZVMoFKdre8qje7BvPiY",
+        "type": "Asset",
+        "createdAt": "2020-02-02T07:09:04.871Z",
+        "updatedAt": "2020-02-13T06:51:12.354Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 19,
+        "publishedAt": "2020-02-13T06:51:12.354Z",
+        "firstPublishedAt": "2020-02-02T07:11:31.909Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2XYYMBD5cQQLpmPAKt9P5u"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2XYYMBD5cQQLpmPAKt9P5u"
+          }
+        },
+        "publishedCounter": 3,
+        "version": 20,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2XYYMBD5cQQLpmPAKt9P5u"
+          }
+        }
+      },
+      "fields": {
+        "title": {
+          "en-US": "radio tower"
+        },
+        "file": {
+          "en-US": {
+            "url": "//images.ctfassets.net/njugwttfbc40/2djZVMoFKdre8qje7BvPiY/7bf5805dd7b02f95d6e9f825c3ca8954/steve-halama-t5zp-0ZXFPg-unsplash.jpg",
+            "details": {
+              "size": 2093076,
+              "image": {
+                "width": 3144,
+                "height": 4716
+              }
+            },
+            "fileName": "steve-halama-t5zp-0ZXFPg-unsplash.jpg",
+            "contentType": "image/jpeg"
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "njugwttfbc40"
+          }
+        },
+        "id": "W7zAx9EoCTyP99xjrwZQF",
+        "type": "Asset",
+        "createdAt": "2020-02-02T07:16:16.605Z",
+        "updatedAt": "2020-02-23T22:26:53.590Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 8,
+        "publishedAt": "2020-02-23T22:26:53.590Z",
+        "firstPublishedAt": "2020-02-02T07:16:53.855Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2XYYMBD5cQQLpmPAKt9P5u"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2XYYMBD5cQQLpmPAKt9P5u"
+          }
+        },
+        "publishedCounter": 2,
+        "version": 9,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2XYYMBD5cQQLpmPAKt9P5u"
+          }
+        }
+      },
+      "fields": {
+        "title": {
+          "en-US": "Mockup"
+        },
+        "file": {
+          "en-US": {
+            "url": "//images.ctfassets.net/njugwttfbc40/W7zAx9EoCTyP99xjrwZQF/cbb7db842e51898779d96887829581c9/Screen_Shot_2020-02-02_at_2.13.31_AM.png",
+            "details": {
+              "size": 167323,
+              "image": {
+                "width": 2880,
+                "height": 1640
+              }
+            },
+            "fileName": "Screen Shot 2020-02-02 at 2.13.31 AM.png",
+            "contentType": "image/png"
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "njugwttfbc40"
+          }
+        },
+        "id": "5BYFS26LFbw4RuhhlycN7B",
+        "type": "Asset",
+        "createdAt": "2020-02-13T06:51:36.583Z",
+        "updatedAt": "2020-02-13T06:52:27.364Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 5,
+        "publishedAt": "2020-02-13T06:52:27.364Z",
+        "firstPublishedAt": "2020-02-13T06:52:27.364Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2XYYMBD5cQQLpmPAKt9P5u"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2XYYMBD5cQQLpmPAKt9P5u"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 6,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2XYYMBD5cQQLpmPAKt9P5u"
+          }
+        }
+      },
+      "fields": {
+        "title": {
+          "en-US": "Colour Surge"
+        },
+        "file": {
+          "en-US": {
+            "url": "//images.ctfassets.net/njugwttfbc40/5BYFS26LFbw4RuhhlycN7B/b587e16ae01a57c0f9d37146ad85a590/ColourSurge1.jpg",
+            "details": {
+              "size": 540455,
+              "image": {
+                "width": 700,
+                "height": 533
+              }
+            },
+            "fileName": "ColourSurge1.jpg",
+            "contentType": "image/jpeg"
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "njugwttfbc40"
+          }
+        },
+        "id": "4uPDqtSXTnTLSz98UtjeM9",
+        "type": "Asset",
+        "createdAt": "2020-02-13T06:52:31.538Z",
+        "updatedAt": "2020-02-13T06:53:18.832Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 20,
+        "publishedAt": "2020-02-13T06:53:18.832Z",
+        "firstPublishedAt": "2020-02-13T06:53:18.832Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2XYYMBD5cQQLpmPAKt9P5u"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2XYYMBD5cQQLpmPAKt9P5u"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 21,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2XYYMBD5cQQLpmPAKt9P5u"
+          }
+        }
+      },
+      "fields": {
+        "title": {
+          "en-US": "Creative Blog Landing Page"
+        },
+        "file": {
+          "en-US": {
+            "url": "//images.ctfassets.net/njugwttfbc40/4uPDqtSXTnTLSz98UtjeM9/92cfd73c97ebd5f44e60e685d343faa0/Blog.png",
+            "details": {
+              "size": 2510276,
+              "image": {
+                "width": 1920,
+                "height": 1080
+              }
+            },
+            "fileName": "Blog.png",
+            "contentType": "image/png"
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "njugwttfbc40"
+          }
+        },
+        "id": "4tg35j8Q5zHgNULYOQqGUA",
+        "type": "Asset",
+        "createdAt": "2020-02-13T07:03:19.300Z",
+        "updatedAt": "2020-02-13T07:04:03.642Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 11,
+        "publishedAt": "2020-02-13T07:04:03.642Z",
+        "firstPublishedAt": "2020-02-13T07:04:03.642Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2XYYMBD5cQQLpmPAKt9P5u"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2XYYMBD5cQQLpmPAKt9P5u"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 12,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2XYYMBD5cQQLpmPAKt9P5u"
+          }
+        }
+      },
+      "fields": {
+        "title": {
+          "en-US": "drops cover photo"
+        },
+        "file": {
+          "en-US": {
+            "url": "//images.ctfassets.net/njugwttfbc40/4tg35j8Q5zHgNULYOQqGUA/28844f0aa031151b788617dfc9efee95/mario-gogh-VBLHICVh-lI-unsplash.jpg",
+            "details": {
+              "size": 4711026,
+              "image": {
+                "width": 5551,
+                "height": 3701
+              }
+            },
+            "fileName": "mario-gogh-VBLHICVh-lI-unsplash.jpg",
+            "contentType": "image/jpeg"
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "njugwttfbc40"
+          }
+        },
+        "id": "3Fc8WViafv2gdBTGL794Ag",
+        "type": "Asset",
+        "createdAt": "2020-02-13T07:04:08.049Z",
+        "updatedAt": "2020-02-13T07:07:35.361Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 5,
+        "publishedAt": "2020-02-13T07:07:35.361Z",
+        "firstPublishedAt": "2020-02-13T07:07:35.361Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2XYYMBD5cQQLpmPAKt9P5u"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2XYYMBD5cQQLpmPAKt9P5u"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 6,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2XYYMBD5cQQLpmPAKt9P5u"
+          }
+        }
+      },
+      "fields": {
+        "title": {
+          "en-US": "Drops Landing"
+        },
+        "file": {
+          "en-US": {
+            "url": "//images.ctfassets.net/njugwttfbc40/3Fc8WViafv2gdBTGL794Ag/7dca224eb009caf307327caf1e1231b6/Drops-Landing.png",
+            "details": {
+              "size": 143464,
+              "image": {
+                "width": 1440,
+                "height": 955
+              }
+            },
+            "fileName": "Drops-Landing.png",
+            "contentType": "image/png"
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "njugwttfbc40"
+          }
+        },
+        "id": "1k9QS2DtS9220C4bMCD1MV",
+        "type": "Asset",
+        "createdAt": "2020-04-27T05:58:50.587Z",
+        "updatedAt": "2020-04-27T07:08:01.084Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 11,
+        "publishedAt": "2020-04-27T07:08:01.084Z",
+        "firstPublishedAt": "2020-04-27T07:08:01.084Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2XYYMBD5cQQLpmPAKt9P5u"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2XYYMBD5cQQLpmPAKt9P5u"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 12,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2XYYMBD5cQQLpmPAKt9P5u"
+          }
+        }
+      },
+      "fields": {
+        "title": {
+          "en-US": "sean-lim-NPlv2pkYoUA-unsplash"
+        },
+        "description": {
+          "en-US": "Photo by Sean Lim on Unsplash. https://unsplash.com/photos/NPlv2pkYoUA"
+        },
+        "file": {
+          "en-US": {
+            "url": "//images.ctfassets.net/njugwttfbc40/1k9QS2DtS9220C4bMCD1MV/3200efc7d409b2ba5d3b2bcb1031132a/sean-lim-NPlv2pkYoUA-unsplash.jpg",
+            "details": {
+              "size": 1849438,
+              "image": {
+                "width": 6000,
+                "height": 4000
+              }
+            },
+            "fileName": "sean-lim-NPlv2pkYoUA-unsplash.jpg",
+            "contentType": "image/jpeg"
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "njugwttfbc40"
+          }
+        },
+        "id": "1RNQ4plhpMsZh92e5bjHcd",
+        "type": "Asset",
+        "createdAt": "2020-04-27T08:08:10.409Z",
+        "updatedAt": "2020-04-27T08:09:26.686Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 18,
+        "publishedAt": "2020-04-27T08:09:26.686Z",
+        "firstPublishedAt": "2020-04-27T08:09:26.686Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2XYYMBD5cQQLpmPAKt9P5u"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2XYYMBD5cQQLpmPAKt9P5u"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 19,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2XYYMBD5cQQLpmPAKt9P5u"
+          }
+        }
+      },
+      "fields": {
+        "title": {
+          "en-US": "Screen Shot 2020-04-27 at 4.08.42 AM"
+        },
+        "description": {
+          "en-US": "Starting off file structure"
+        },
+        "file": {
+          "en-US": {
+            "url": "//images.ctfassets.net/njugwttfbc40/1RNQ4plhpMsZh92e5bjHcd/87c6867f310b688821e37e230cdcc6e8/Screen_Shot_2020-04-27_at_4.08.42_AM.png",
+            "details": {
+              "size": 43176,
+              "image": {
+                "width": 334,
+                "height": 504
+              }
+            },
+            "fileName": "Screen Shot 2020-04-27 at 4.08.42 AM.png",
+            "contentType": "image/png"
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "njugwttfbc40"
+          }
+        },
+        "id": "1OxEG90eV7v9aBt6BDJu6p",
+        "type": "Asset",
+        "createdAt": "2023-07-18T22:32:03.326Z",
+        "updatedAt": "2023-07-18T22:32:20.607Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 4,
+        "publishedAt": "2023-07-18T22:32:20.607Z",
+        "firstPublishedAt": "2023-07-18T22:32:20.607Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2XYYMBD5cQQLpmPAKt9P5u"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2XYYMBD5cQQLpmPAKt9P5u"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 5,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2XYYMBD5cQQLpmPAKt9P5u"
+          }
+        }
+      },
+      "fields": {
+        "title": {
+          "en-US": "Tribe Hero"
+        },
+        "description": {
+          "en-US": ""
+        },
+        "file": {
+          "en-US": {
+            "url": "//images.ctfassets.net/njugwttfbc40/1OxEG90eV7v9aBt6BDJu6p/e8bc02357e47c1c12fa865de843e699f/tribe-hero.jpg",
+            "details": {
+              "size": 27004,
+              "image": {
+                "width": 975,
+                "height": 1300
+              }
+            },
+            "fileName": "tribe-hero.jpg",
+            "contentType": "image/jpeg"
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "njugwttfbc40"
+          }
+        },
+        "id": "4FIyEbSHfLMPqlWP3Mtqdd",
+        "type": "Asset",
+        "createdAt": "2023-07-18T22:33:53.130Z",
+        "updatedAt": "2023-07-19T02:48:59.656Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 7,
+        "publishedAt": "2023-07-19T02:48:59.656Z",
+        "firstPublishedAt": "2023-07-18T22:38:08.319Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2XYYMBD5cQQLpmPAKt9P5u"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2XYYMBD5cQQLpmPAKt9P5u"
+          }
+        },
+        "publishedCounter": 2,
+        "version": 8,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2XYYMBD5cQQLpmPAKt9P5u"
+          }
+        }
+      },
+      "fields": {
+        "title": {
+          "en-US": "Tribe Mockup"
+        },
+        "description": {
+          "en-US": "Mockup of a Tribes Dashboard"
+        },
+        "file": {
+          "en-US": {
+            "url": "//images.ctfassets.net/njugwttfbc40/4FIyEbSHfLMPqlWP3Mtqdd/a48ffe9cdf4907c516d8de20862d65ee/6487781c8ddb002de0dbcd94_b938SdVh7NUwauBOxjsuo6OupKfTrFD2qAD1AZNBLb_RRVR1aKMdlpW79dRUJGWyj8NBfQ6Bw2EcfEc-UytQqiBtZjPF5LKFTki.png",
+            "details": {
+              "size": 1591430,
+              "image": {
+                "width": 1600,
+                "height": 1518
+              }
+            },
+            "fileName": "6487781c8ddb002de0dbcd94_b938SdVh7NUwauBOxjsuo6OupKfTrFD2qAD1AZNBLb_RRVR1aKMdlpW79dRUJGWyj8NBfQ6Bw2EcfEc-UytQqiBtZjPF5LKFTkiQOLn9PizJRT37vOThCj8FE8Mp7a8ckKywxOBBseF0-7IkaM61DNU.png",
+            "contentType": "image/png"
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "njugwttfbc40"
+          }
+        },
+        "id": "3IOgwNQN0m81wNnezHgYON",
+        "type": "Asset",
+        "createdAt": "2023-07-18T22:41:13.013Z",
+        "updatedAt": "2023-07-19T02:48:26.996Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 7,
+        "publishedAt": "2023-07-19T02:48:26.996Z",
+        "firstPublishedAt": "2023-07-18T22:41:43.420Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2XYYMBD5cQQLpmPAKt9P5u"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2XYYMBD5cQQLpmPAKt9P5u"
+          }
+        },
+        "publishedCounter": 2,
+        "version": 8,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2XYYMBD5cQQLpmPAKt9P5u"
+          }
+        }
+      },
+      "fields": {
+        "title": {
+          "en-US": "Miro Dashboard"
+        },
+        "description": {
+          "en-US": "Entire Wire Frame Board"
+        },
+        "file": {
+          "en-US": {
+            "url": "//images.ctfassets.net/njugwttfbc40/3IOgwNQN0m81wNnezHgYON/e475ba1e3ba270c7b3546cce53d5441c/6487781c3ac838e6ec34e31d_VVx-oeVVAS1RbWlaWRBrTtNLVOcOBM6xZ8ZPcWodjUgvTrDpwZg_msVifMQX_tU4AXmaAN-eMz3tIjHgZzMbV9kHJR-WLal2JJB.png",
+            "details": {
+              "size": 72855,
+              "image": {
+                "width": 1600,
+                "height": 552
+              }
+            },
+            "fileName": "6487781c3ac838e6ec34e31d_VVx-oeVVAS1RbWlaWRBrTtNLVOcOBM6xZ8ZPcWodjUgvTrDpwZg_msVifMQX_tU4AXmaAN-eMz3tIjHgZzMbV9kHJR-WLal2JJBpfTlT_1L2CBOGttDgPtP1d4167kKUJCs8pJ2oZC8NLQ00D7ZKzpE.png",
+            "contentType": "image/png"
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "njugwttfbc40"
+          }
+        },
+        "id": "6EhUwTOvhVG4MnlR28uVx2",
+        "type": "Asset",
+        "createdAt": "2023-07-18T22:42:14.870Z",
+        "updatedAt": "2023-07-19T02:47:58.981Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 8,
+        "publishedAt": "2023-07-19T02:47:58.981Z",
+        "firstPublishedAt": "2023-07-18T22:42:34.023Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2XYYMBD5cQQLpmPAKt9P5u"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2XYYMBD5cQQLpmPAKt9P5u"
+          }
+        },
+        "publishedCounter": 2,
+        "version": 9,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2XYYMBD5cQQLpmPAKt9P5u"
+          }
+        }
+      },
+      "fields": {
+        "title": {
+          "en-US": "Final Miro Components"
+        },
+        "description": {
+          "en-US": "MVP Wireframe For desktop"
+        },
+        "file": {
+          "en-US": {
+            "url": "//images.ctfassets.net/njugwttfbc40/6EhUwTOvhVG4MnlR28uVx2/327fb7978a3eaf0c5f52bf90b88144b2/6487781b7ae3614e886a3188_3_E6WMWF1uPWp6scr3PmLWO4lT2Z6j5utHAzmV949-pkGURJoaRG2zRmzn3fU0tfPBVTtVZG-jygK-kEPk3iEDYOE3cveMR0IKN.png",
+            "details": {
+              "size": 115363,
+              "image": {
+                "width": 1375,
+                "height": 1336
+              }
+            },
+            "fileName": "6487781b7ae3614e886a3188_3_E6WMWF1uPWp6scr3PmLWO4lT2Z6j5utHAzmV949-pkGURJoaRG2zRmzn3fU0tfPBVTtVZG-jygK-kEPk3iEDYOE3cveMR0IKN1zw20jSmOspvx40hkIcsryjO1Em4YsP4rASncSGeyZA-21aeeFj4.png",
+            "contentType": "image/png"
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "njugwttfbc40"
+          }
+        },
+        "id": "1DRyfOViWmEd2ZqEVbvunN",
+        "type": "Asset",
+        "createdAt": "2023-07-18T22:43:33.285Z",
+        "updatedAt": "2023-07-19T02:47:00.229Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 5,
+        "publishedAt": "2023-07-19T02:47:00.229Z",
+        "firstPublishedAt": "2023-07-18T22:43:41.821Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2XYYMBD5cQQLpmPAKt9P5u"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2XYYMBD5cQQLpmPAKt9P5u"
+          }
+        },
+        "publishedCounter": 2,
+        "version": 6,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2XYYMBD5cQQLpmPAKt9P5u"
+          }
+        }
+      },
+      "fields": {
+        "title": {
+          "en-US": "comparison"
+        },
+        "description": {
+          "en-US": "Template (left), Tribe (right)"
+        },
+        "file": {
+          "en-US": {
+            "url": "//images.ctfassets.net/njugwttfbc40/1DRyfOViWmEd2ZqEVbvunN/62d7956dbab1ead4da4fd76e8168e668/comparison.jpg",
+            "details": {
+              "size": 510791,
+              "image": {
+                "width": 2404,
+                "height": 1114
+              }
+            },
+            "fileName": "comparison.jpg",
+            "contentType": "image/jpeg"
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "njugwttfbc40"
+          }
+        },
+        "id": "29THh96qhmVe7H8eQCiSCd",
+        "type": "Asset",
+        "createdAt": "2023-07-18T22:44:41.032Z",
+        "updatedAt": "2023-07-19T02:46:23.647Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 6,
+        "publishedAt": "2023-07-19T02:46:23.647Z",
+        "firstPublishedAt": "2023-07-18T22:44:56.796Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2XYYMBD5cQQLpmPAKt9P5u"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2XYYMBD5cQQLpmPAKt9P5u"
+          }
+        },
+        "publishedCounter": 2,
+        "version": 7,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2XYYMBD5cQQLpmPAKt9P5u"
+          }
+        }
+      },
+      "fields": {
+        "title": {
+          "en-US": "ERD"
+        },
+        "description": {
+          "en-US": "ERD of all the data moving within tribe"
+        },
+        "file": {
+          "en-US": {
+            "url": "//images.ctfassets.net/njugwttfbc40/29THh96qhmVe7H8eQCiSCd/dcb9103fcc455f2359d6483609dfdc21/erd.jpeg",
+            "details": {
+              "size": 97578,
+              "image": {
+                "width": 1600,
+                "height": 1195
+              }
+            },
+            "fileName": "erd.jpeg",
+            "contentType": "image/jpeg"
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "njugwttfbc40"
+          }
+        },
+        "id": "5VJOUavDDcEL74Y8bjxe94",
+        "type": "Asset",
+        "createdAt": "2023-07-19T02:45:21.833Z",
+        "updatedAt": "2023-07-19T02:45:53.481Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 4,
+        "publishedAt": "2023-07-19T02:45:53.481Z",
+        "firstPublishedAt": "2023-07-19T02:45:53.481Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2XYYMBD5cQQLpmPAKt9P5u"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2XYYMBD5cQQLpmPAKt9P5u"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 5,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2XYYMBD5cQQLpmPAKt9P5u"
+          }
+        }
+      },
+      "fields": {
+        "title": {
+          "en-US": "erd2"
+        },
+        "description": {
+          "en-US": "Flow chart for logging in to Tribe"
+        },
+        "file": {
+          "en-US": {
+            "url": "//images.ctfassets.net/njugwttfbc40/5VJOUavDDcEL74Y8bjxe94/fadad07b0f7cf4ed4f4ae73be1e7058c/erd2.jpeg",
+            "details": {
+              "size": 72127,
+              "image": {
+                "width": 1051,
+                "height": 1182
+              }
+            },
+            "fileName": "erd2.jpeg",
+            "contentType": "image/jpeg"
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "njugwttfbc40"
+          }
+        },
+        "id": "1K4Jz0xegAhtnc6qhb9U7s",
+        "type": "Asset",
+        "createdAt": "2023-07-19T03:13:30.910Z",
+        "updatedAt": "2023-07-19T03:14:11.351Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 6,
+        "publishedAt": "2023-07-19T03:14:11.351Z",
+        "firstPublishedAt": "2023-07-19T03:14:11.351Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2XYYMBD5cQQLpmPAKt9P5u"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2XYYMBD5cQQLpmPAKt9P5u"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 7,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2XYYMBD5cQQLpmPAKt9P5u"
+          }
+        }
+      },
+      "fields": {
+        "title": {
+          "en-US": "MasonSellsIndy Cover Photo"
+        },
+        "description": {
+          "en-US": ""
+        },
+        "file": {
+          "en-US": {
+            "url": "//images.ctfassets.net/njugwttfbc40/1K4Jz0xegAhtnc6qhb9U7s/a4f95ecc4744a30b17af5b9ef91ad49e/640a29c414e05c6f2aa007fd_rs_w_1920_m__1_.webp",
+            "details": {
+              "size": 420132,
+              "image": {
+                "width": 1920,
+                "height": 1920
+              }
+            },
+            "fileName": "640a29c414e05c6f2aa007fd_rs=w_1920,m (1).webp",
+            "contentType": "image/webp"
+          }
+        }
+      }
+    }
+  ],
+  "locales": [
+    {
+      "name": "English (United States)",
+      "code": "en-US",
+      "fallbackCode": null,
+      "default": true,
+      "contentManagementApi": true,
+      "contentDeliveryApi": true,
+      "optional": false,
+      "sys": {
+        "type": "Locale",
+        "id": "6AsLnrtHgQz6gsoq3v2MFS",
+        "version": 1,
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "njugwttfbc40"
+          }
+        },
+        "environment": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Environment",
+            "id": "master",
+            "uuid": "2bf5dcc1-9d39-491a-b6af-b87e522b9332"
+          }
+        },
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2XYYMBD5cQQLpmPAKt9P5u"
+          }
+        },
+        "createdAt": "2020-02-02T05:50:31Z",
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2XYYMBD5cQQLpmPAKt9P5u"
+          }
+        },
+        "updatedAt": "2020-02-02T05:50:31Z"
+      }
+    }
+  ],
+  "webhooks": [
+  ],
+  "roles": [
+  ]
+}

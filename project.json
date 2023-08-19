@@ -1,0 +1,244 @@
+{
+  "name": "Project",
+  "description": "Content mode for projects i've done",
+  "displayField": "title",
+  "fields": [
+    {
+      "id": "title",
+      "name": "Title",
+      "type": "Symbol",
+      "localized": false,
+      "required": true,
+      "validations": [
+        {
+          "size": {
+            "min": 0,
+            "max": 35
+          },
+          "message": "Title too long"
+        }
+      ],
+      "disabled": false,
+      "omitted": false
+    },
+    {
+      "id": "slug",
+      "name": "slug",
+      "type": "Symbol",
+      "localized": false,
+      "required": true,
+      "validations": [
+        {
+          "unique": true
+        },
+        {
+          "size": {
+            "min": 0,
+            "max": 50
+          },
+          "message": "Slug too long"
+        }
+      ],
+      "disabled": false,
+      "omitted": false
+    },
+    {
+      "id": "coverPhoto",
+      "name": "Cover Photo",
+      "type": "Link",
+      "localized": false,
+      "required": true,
+      "validations": [],
+      "disabled": false,
+      "omitted": false,
+      "linkType": "Asset"
+    },
+    {
+      "id": "body",
+      "name": "Body",
+      "type": "RichText",
+      "localized": false,
+      "required": false,
+      "validations": [
+        {
+          "enabledMarks": [
+            "bold",
+            "italic",
+            "underline",
+            "code"
+          ],
+          "message": "Only bold, italic, underline, and code marks are allowed"
+        },
+        {
+          "enabledNodeTypes": [
+            "heading-1",
+            "heading-2",
+            "heading-3",
+            "heading-4",
+            "heading-5",
+            "heading-6",
+            "ordered-list",
+            "unordered-list",
+            "hr",
+            "blockquote",
+            "embedded-entry-block",
+            "embedded-asset-block",
+            "hyperlink",
+            "entry-hyperlink",
+            "asset-hyperlink",
+            "embedded-entry-inline"
+          ],
+          "message": "Only heading 1, heading 2, heading 3, heading 4, heading 5, heading 6, ordered list, unordered list, horizontal rule, quote, block entry, asset, link to Url, link to entry, link to asset, and inline entry nodes are allowed"
+        },
+        {
+          "nodes": {}
+        }
+      ],
+      "disabled": false,
+      "omitted": false
+    },
+    {
+      "id": "githubRepo",
+      "name": "Github Repo",
+      "type": "Symbol",
+      "localized": false,
+      "required": true,
+      "validations": [
+        {
+          "unique": true
+        },
+        {
+          "regexp": {
+            "pattern": "^(ftp|http|https):\\/\\/(\\w+:{0,1}\\w*@)?(\\S+)(:[0-9]+)?(\\/|\\/([\\w#!:.?+=&%@!\\-/]))?$",
+            "flags": null
+          }
+        }
+      ],
+      "disabled": false,
+      "omitted": false
+    },
+    {
+      "id": "category",
+      "name": "category",
+      "type": "Array",
+      "localized": false,
+      "required": true,
+      "validations": [],
+      "defaultValue": {
+        "en-US": [
+          "Front-End Development"
+        ]
+      },
+      "disabled": false,
+      "omitted": false,
+      "items": {
+        "type": "Symbol",
+        "validations": [
+          {
+            "in": [
+              "Template",
+              "Front-End Development",
+              "App Development"
+            ],
+            "message": "Please select the a value from the lsit"
+          }
+        ]
+      }
+    },
+    {
+      "id": "liveUrl",
+      "name": "Live Url",
+      "type": "Symbol",
+      "localized": false,
+      "required": true,
+      "validations": [
+        {
+          "unique": true
+        },
+        {
+          "regexp": {
+            "pattern": "^(ftp|http|https):\\/\\/(\\w+:{0,1}\\w*@)?(\\S+)(:[0-9]+)?(\\/|\\/([\\w#!:.?+=&%@!\\-/]))?$",
+            "flags": null
+          },
+          "message": "Please enter a url patern"
+        }
+      ],
+      "disabled": false,
+      "omitted": false
+    },
+    {
+      "id": "shortDescription",
+      "name": "Short Description",
+      "type": "Symbol",
+      "localized": false,
+      "required": false,
+      "validations": [],
+      "disabled": false,
+      "omitted": true
+    },
+    {
+      "id": "overview",
+      "name": "Overview",
+      "type": "Text",
+      "localized": false,
+      "required": true,
+      "validations": [
+        {
+          "size": {
+            "min": 0,
+            "max": 500
+          },
+          "message": "Too long bruh"
+        }
+      ],
+      "disabled": false,
+      "omitted": false
+    }
+  ],
+  "sys": {
+    "space": {
+      "sys": {
+        "type": "Link",
+        "linkType": "Space",
+        "id": "njugwttfbc40"
+      }
+    },
+    "id": "project",
+    "type": "ContentType",
+    "createdAt": "2020-02-02T06:33:07.533Z",
+    "updatedAt": "2023-07-19T03:17:17.247Z",
+    "environment": {
+      "sys": {
+        "id": "master",
+        "type": "Link",
+        "linkType": "Environment"
+      }
+    },
+    "publishedVersion": 39,
+    "publishedAt": "2023-07-19T03:17:17.247Z",
+    "firstPublishedAt": "2020-02-02T06:33:08.027Z",
+    "createdBy": {
+      "sys": {
+        "type": "Link",
+        "linkType": "User",
+        "id": "2XYYMBD5cQQLpmPAKt9P5u"
+      }
+    },
+    "updatedBy": {
+      "sys": {
+        "type": "Link",
+        "linkType": "User",
+        "id": "2XYYMBD5cQQLpmPAKt9P5u"
+      }
+    },
+    "publishedCounter": 20,
+    "version": 40,
+    "publishedBy": {
+      "sys": {
+        "type": "Link",
+        "linkType": "User",
+        "id": "2XYYMBD5cQQLpmPAKt9P5u"
+      }
+    }
+  }
+}
