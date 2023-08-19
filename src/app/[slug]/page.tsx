@@ -104,6 +104,6 @@ export async function generateStaticParams() {
   })
   .catch(console.error)
 
-
-  return listItems?.map(({ fields }) => ({ slug: fields.slug }))
+  const data = listItems ? listItems.map(({ fields }) => ({ slug: fields.slug })) : []
+  return data
 }
