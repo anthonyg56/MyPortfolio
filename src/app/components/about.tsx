@@ -21,7 +21,7 @@ export default function About() {
               <a href='https://www.facebook.com/anthony.gayflor' className="" style={{ textDecoration: "none" }}><Image src="/facebook.svg" alt="facebook" height={32} width={32}/></a>
               <a href="http://www.twitter.com/GayflorAnthony" className='' style={{ textDecoration: "none" }}><Image src="/twitter.svg" alt="twitter" height={32} width={32}/></a>
               <a href="https://github.com/anthonyg56" className='' style={{ textDecoration: "none" }}><Image src="/github.svg" alt="github" height={32} width={32}/></a>
-              <a href="https://www.anthonygayflor.com/#" className='' style={{ textDecoration: "none" }}><Image src="/linkedin.svg" alt="linkedin" height={32} width={32}/></a>
+              <a href="https://www.anthonygayflor.com/#" className='' style={{ textDecoration: "none" }}><Image src="/linkedIn.svg" alt="linkedin" height={32} width={32}/></a>
             </div>
           </div>
         </div>
