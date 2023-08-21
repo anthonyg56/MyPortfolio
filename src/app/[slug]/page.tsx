@@ -16,6 +16,7 @@ const client = Contentful.createClient({
  *  this function fetches the data of a project from contentful,
  *  and then it's passed to the page
  * 
+ * 
  * @param slug 
  * @returns 
  */
