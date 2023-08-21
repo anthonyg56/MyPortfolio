@@ -12,6 +12,13 @@ const client = Contentful.createClient({
   accessToken: token as string
 })
 
+/** Based on the slug, 
+ *  this function fetches the data of a project from contentful,
+ *  and then it's passed to the page
+ * 
+ * @param slug 
+ * @returns 
+ */
 const getProject = async (slug: string) => {
   const projects = await client.getEntries<TypeProjectSkeleton>({ content_type: 'project', "fields.slug": slug })
     .then((content) => {
