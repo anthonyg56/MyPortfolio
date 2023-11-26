@@ -16,7 +16,6 @@ const client = Contentful.createClient({
 const getProjects = async () => {
   const projects = await client.getEntries<TypeProjectSkeleton>({ content_type: 'project' })
     .then((content) => {
-      console.log(content)
       const items = content.items
 
 
@@ -31,7 +30,6 @@ export default async function Projects() {
   const data = await getProjects()
   
   const ProjectsMap = () => data ? data.map(({ fields }) => {
-    console.log(fields.coverPhoto)
     return <ProjectItem name={fields.title} img={fields.coverPhoto as IAsset} slug={fields.slug} type={fields.category} />
   }) : null
 

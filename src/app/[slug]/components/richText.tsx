@@ -12,7 +12,7 @@ export default function RichText(props: Props) {
       return text.split('\n').flatMap((text, i) => [i > 0 && <br />, text]);
     },
     renderNode: {
-      [INLINES.HYPERLINK]: (node, children) => <a className='rich-text-a'>{children}</a>,
+      [INLINES.HYPERLINK]: (node, children) => <a className='rich-text-a' href={node.data.uri}>{children}</a>,
       [BLOCKS.HEADING_5]: (node, children) => <h5 className='rich-text-h5'><strong>{children}</strong></h5>,
       [BLOCKS.HEADING_3]: (node, children) => <h3 className='rich-text-h3'>{children}</h3>,
       [BLOCKS.PARAGRAPH]: (node, children) => <p className='rich-text-p'>{children}</p>,
